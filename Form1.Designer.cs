@@ -47,7 +47,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 207);
+            panel1.Size = new Size(794, 207);
             panel1.TabIndex = 0;
             // 
             // label1
@@ -78,18 +78,19 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(800, 416);
+            tableLayoutPanel1.Size = new Size(794, 371);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // Mucca
             // 
             Mucca.Dock = DockStyle.Fill;
             Mucca.Image = (Image)resources.GetObject("Mucca.Image");
-            Mucca.Location = new Point(403, 3);
+            Mucca.Location = new Point(400, 3);
             Mucca.Name = "Mucca";
-            Mucca.Size = new Size(394, 202);
+            Mucca.Size = new Size(391, 179);
             Mucca.TabIndex = 0;
             Mucca.UseVisualStyleBackColor = true;
+            Mucca.Click += Mucca_Click;
             // 
             // Cane
             // 
@@ -97,36 +98,39 @@
             Cane.Image = (Image)resources.GetObject("Cane.Image");
             Cane.Location = new Point(3, 3);
             Cane.Name = "Cane";
-            Cane.Size = new Size(394, 202);
+            Cane.Size = new Size(391, 179);
             Cane.TabIndex = 1;
             Cane.UseVisualStyleBackColor = true;
+            Cane.Click += Cane_Click;
             // 
             // Capra
             // 
             Capra.Dock = DockStyle.Fill;
             Capra.Image = (Image)resources.GetObject("Capra.Image");
-            Capra.Location = new Point(3, 211);
+            Capra.Location = new Point(3, 188);
             Capra.Name = "Capra";
-            Capra.Size = new Size(394, 202);
+            Capra.Size = new Size(391, 180);
             Capra.TabIndex = 2;
             Capra.Text = "\r\n";
             Capra.UseVisualStyleBackColor = true;
+            Capra.Click += Capra_Click;
             // 
             // Gatto
             // 
             Gatto.Dock = DockStyle.Fill;
             Gatto.Image = (Image)resources.GetObject("Gatto.Image");
-            Gatto.Location = new Point(403, 211);
+            Gatto.Location = new Point(400, 188);
             Gatto.Name = "Gatto";
-            Gatto.Size = new Size(394, 202);
+            Gatto.Size = new Size(391, 180);
             Gatto.TabIndex = 3;
             Gatto.UseVisualStyleBackColor = true;
+            Gatto.Click += Gatto_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 623);
+            ClientSize = new Size(794, 578);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(panel1);
             Name = "Form1";
