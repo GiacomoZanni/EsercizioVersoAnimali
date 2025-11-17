@@ -8,20 +8,16 @@ namespace EsercizioVersoAnimali
         int clickGatto = 0;
         int clickMucca = 0;
         int clickCapra = 0;
-        public event EventHandler<AnimaleStancoEventArgs> AnimaleStanco;
+        public event EventHandler<EventArgs> AnimaleStanco;
 
         public Form1()
         {
             InitializeComponent();
-            AnimaleStanco += ImmagineCaneStanco;
-            AnimaleStanco += ImmagineGattoStanco;
-            AnimaleStanco += ImmagineMuccaStanca;
-            AnimaleStanco += ImmagineCapraStanca;
         }
 
-        protected virtual void OnAnimaleStanco(string animale)
+        protected virtual void OnAnimaleStanco()
         {
-            AnimaleStanco?.Invoke(this, new AnimaleStancoEventArgs { Animale = animale });
+            AnimaleStanco?.Invoke(this, EventArgs.Empty);
         }
 
         private void Cane_Click(object sender, EventArgs e)
@@ -31,8 +27,11 @@ namespace EsercizioVersoAnimali
             clickCane++;
             if (clickCane > 3)
             {
-                OnAnimaleStanco("cane");
+                AnimaleStanco += ImmagineCaneStanco;
+                OnAnimaleStanco();
                 clickCane = 0;
+                AnimaleStanco -= ImmagineCaneStanco;
+                Thread.Sleep(60000);
             }
         }
 
@@ -43,9 +42,13 @@ namespace EsercizioVersoAnimali
             clickGatto++;
             if (clickGatto > 3)
             {
-                OnAnimaleStanco("gatto");
+                AnimaleStanco += ImmagineGattoStanco;
+                OnAnimaleStanco();
                 clickGatto = 0;
+                Thread.Sleep(60000);
+                Gatto.Image = Image.FromFile("C:\\Users\\12999367\\source\\repos\\EsercizioVersoAnimali\\Immagini\\gatto.jpg");
             }
+            AnimaleStanco -= ImmagineGattoStanco;
         }
 
         private void Mucca_Click(object sender, EventArgs e)
@@ -55,8 +58,11 @@ namespace EsercizioVersoAnimali
             clickMucca++;
             if (clickMucca > 3)
             {
-                OnAnimaleStanco("mucca");
+                AnimaleStanco += ImmagineMuccaStanca;
+                OnAnimaleStanco();
                 clickMucca = 0;
+                AnimaleStanco -= ImmagineMuccaStanca;
+                Thread.Sleep(60000);
             }
         }
 
@@ -67,8 +73,11 @@ namespace EsercizioVersoAnimali
             clickCapra++;
             if (clickCapra > 3)
             {
-                OnAnimaleStanco("capra");
+                AnimaleStanco += ImmagineCapraStanca;
+                OnAnimaleStanco();
                 clickCapra = 0;
+                AnimaleStanco -= ImmagineCapraStanca;
+                Thread.Sleep(60000);
             }
         }
 
